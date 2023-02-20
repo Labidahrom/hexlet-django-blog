@@ -1,1 +1,10 @@
-<h1>fuck, {{ app_name }}!</h1>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Список статей</h1>
+    {% for article in articles %}
+        <h2><a href="/article/{{ article.id }}">{{ article.name }}</a></h2>
+        <div><a href="/article/{{ article.id }}/edit/">Изменить</a></div>
+        <div>{{ article.body|slice:":200" }}</div>
+    {% endfor %}
+{% endblock %}

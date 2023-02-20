@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "article/form.html" with action="/article/edit/" id={{ article.id }} button_name="Сохранить" %}
+{% endblock %}

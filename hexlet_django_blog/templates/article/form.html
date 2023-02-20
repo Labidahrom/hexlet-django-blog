@@ -1,0 +1,19 @@
+{% block content %}
+{% if form.subject.errors %}
+    <div>
+        <ul>
+        {% for error in form.subject.errors %}
+            <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<form action={{ action }}{{ id }} method="post">
+    {% csrf_token %}
+    <table border="1">
+    {{ form }}
+    </table>
+    <input type="submit" value={{ button_name }}>
+</form>
+{% endblock %}
